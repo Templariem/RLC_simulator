@@ -10,9 +10,16 @@ st.title("🔌 Simulador de Circuito RLC Serie")
 st.markdown("""
 Esta aplicación permite simular la **respuesta transitoria** de un circuito RLC serie ante distintas condiciones iniciales y parámetros del sistema. Es una herramienta interactiva pensada para apoyar el aprendizaje en cursos de teoría de circuitos.
 
-La ecuación diferencial que gobierna el comportamiento del voltaje en el capacitor es:
+La ecuación diferencial que modela la dinámica del circuito en términos del voltaje en el capacitor es:
 
 $$\\frac{d^2}{dt^2}V_c(t) + \\frac{R}{L} \\frac{d}{dt}V_c(t) + \\frac{1}{LC}V_c(t) = \\frac{1}{LC}V_s(t)$$
+
+La ecuación diferencial que modela la dinámica del circuito en términos de la corriente del inductor $i_L(t)$ es:
+
+$$\\frac{d^2}{dt^2}i_L(t) + \\frac{R}{L} \\frac{d}{dt}i_L(t) + \\frac{1}{LC}i_L(t) = 0$$ 
+
+La resolución de las ecuaciones diferenciales se realiza con el método de Runge-Kutta de cuarto orden (RK4).
+
 
 ---
 
