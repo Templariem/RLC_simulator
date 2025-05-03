@@ -38,7 +38,7 @@ Ideal para:
 
 El circuito simulado es un **RLC serie con fuente de tensión continua**. 
 
-La ecuación diferencial que modela la dinámica del circuito en términos del voltaje en el capacitor es:
+La ecuación diferencial que modela la dinámica del circuito en términos del voltaje en el capacitor $V_c(t)$ es:
 
 $$\frac{d^2}{dt^2}V_c(t) + \frac{R}{L} \frac{d}{dt}V_c(t) + \frac{1}{LC}V_c(t) = \frac{1}{LC}V_s(t)$$ 
 
