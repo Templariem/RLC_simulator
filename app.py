@@ -2,6 +2,26 @@ import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
 
+# --- Título y descripción de la aplicación ---
+st.set_page_config(page_title="Simulador RLC Serie", layout="centered")
+
+st.title("🔌 Simulador de Circuito RLC Serie")
+
+st.markdown("""
+Esta aplicación permite simular la **respuesta transitoria** de un circuito RLC serie ante distintas condiciones iniciales y parámetros del sistema. Es una herramienta interactiva pensada para apoyar el aprendizaje en cursos de teoría de circuitos.
+
+La ecuación diferencial que gobierna el comportamiento del voltaje en el capacitor es:
+
+$$\\frac{d^2}{dt^2}V_c(t) + \\frac{R}{L} \\frac{d}{dt}V_c(t) + \\frac{1}{LC}V_c(t) = \\frac{1}{LC}V_s(t)$$
+
+---
+
+**Desarrollado por:** *Giovanni Cocca-Guardia*, estudiante de doctorado (Ph.D.)  
+**Institución:** Escuela de Ingeniería Eléctrica  
+**Universidad:** Pontificia Universidad Católica de Valparaíso  
+**Curso:** *Teoría de Circuitos 1*
+""")
+
 # --- Simulación numérica (RK4) del RLC serie con fuente Vs ---
 def simulate_response(t, alpha, omega0, Vs, V0, I0):
     L = 1.0
@@ -44,21 +64,21 @@ def damping_case(alpha, omega0):
         return "Infraamortiguado"
     return "Sobreamortiguado"
 
-# --- Interfaz ---
-st.title("Simulación de circuito RLC serie")
-st.markdown("Ajusta los parámetros y observa la respuesta del circuito.")
+# --- Sliders de parámetros ---
+st.sidebar.header("⚙️ Parámetros del sistema")
 
-alpha = st.slider("Amortiguamiento α (s⁻¹)", 0.0, 2000.0, 200.0, 10.0)
-omega0 = st.slider("Frecuencia natural ω₀ (rad/s)", 0.0, 2000.0, 2000.0, 10.0)
-Vs = st.slider("Fuente DC Vs (V)", 0.0, 100.0, 0.0, 0.5)
-V0 = st.slider("Voltaje inicial en el capacitor V₀ (V)", 0.0, 20.0, 10.0, 0.5)
-I0 = st.slider("Corriente inicial I₀ (A)", 0.0, 5.0, 0.0, 0.1)
+alpha = st.sidebar.slider("Amortiguamiento α (s⁻¹)", 0.0, 2000.0, 200.0, 10.0)
+omega0 = st.sidebar.slider("Frecuencia natural ω₀ (rad/s)", 10.0, 2000.0, 2000.0, 10.0)
+Vs = st.sidebar.slider("Fuente DC Vs (V)", 0.0, 100.0, 0.0, 0.5)
+V0 = st.sidebar.slider("Voltaje inicial V₀ (V)", 0.0, 20.0, 10.0, 0.5)
+I0 = st.sidebar.slider("Corriente inicial I₀ (A)", 0.0, 5.0, 0.0, 0.1)
 
+# --- Cálculo y visualización ---
 t = np.linspace(0, 0.1, 2000)
 i_t, vC_t = simulate_response(t, alpha, omega0, Vs, V0, I0)
 
 regimen = damping_case(alpha, omega0)
-st.markdown(f"**Régimen:** {regimen}")
+st.subheader(f"🧠 Régimen: **{regimen}**")
 
 fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(10, 6), sharex=True)
 
@@ -72,3 +92,4 @@ ax2.set_xlabel("Tiempo [s]")
 ax2.grid(True)
 
 st.pyplot(fig)
+
