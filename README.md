@@ -40,11 +40,15 @@ El circuito simulado es un **RLC serie con fuente de tensión continua**.
 
 La ecuación diferencial que modela la dinámica del circuito en términos del voltaje en el capacitor $V_c(t)$ es:
 
-$$\frac{d^2}{dt^2}V_c(t) + \frac{R}{L} \frac{d}{dt}V_c(t) + \frac{1}{LC}V_c(t) = \frac{1}{LC}V_s(t)$$ 
+$$\frac{d^2}{dt^2}V_c(t) + \frac{R}{L} \frac{d}{dt}V_c(t) + \frac{1}{LC}V_c(t) = \frac{1}{LC}V_s(t)$$
+
+$$\frac{d^2}{dt^2}V_c(t) + 2 \alpha \frac{d}{dt}V_c(t) + \omega_o^2V_c(t) = \frac{1}{LC}V_s(t)$$ 
 
 La ecuación diferencial que modela la dinámica del circuito en términos de la corriente del inductor $i_L(t)$ es:
 
-$$\frac{d^2}{dt^2}i_L(t) + \frac{R}{L} \frac{d}{dt}i_L(t) + \frac{1}{LC}i_L(t) = 0$$ 
+$$\frac{d^2}{dt^2}i_L(t) + \frac{R}{L} \frac{d}{dt}i_L(t) + \frac{1}{LC}i_L(t) = 0$$
+
+$$\frac{d^2}{dt^2}i_L(t) + 2 \alpha \frac{d}{dt}i_L(t) + \omega_o^2i_L(t) = 0$$ 
 
 La resolución de las ecuaciones diferenciales se realiza con el método de Runge-Kutta de cuarto orden (RK4).
 
