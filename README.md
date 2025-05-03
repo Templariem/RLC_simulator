@@ -40,3 +40,9 @@ El circuito simulado es un **RLC serie con fuente de tensión continua**. La ecu
 $$\frac{d^2}{dt^2}V_c(t) + \frac{R}{L} \frac{d}{dt}V_c(t) + \frac{1}{LC}V_c(t) = \frac{1}{LC}V_s(t)$$
 
 ---
+
+## 👾 Probar la aplicación en Streamlit
+
+Haz click aqui: [RLC-simulator](https://rlcsimulator-6euappvhc22l2yhd8v9nfkn.streamlit.app)
+
+
