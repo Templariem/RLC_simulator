@@ -20,6 +20,11 @@ $$\\frac{d^2}{dt^2}V_c(t) + \\frac{R}{L} \\frac{d}{dt}V_c(t) + \\frac{1}{LC}V_c(
 **Institución:** Escuela de Ingeniería Eléctrica  
 **Universidad:** Pontificia Universidad Católica de Valparaíso  
 **Curso:** *Teoría de Circuitos 1*
+
+---
+
+🔗 **Repositorio en GitHub:**  
+[https://github.com/Templariem/RLC_simulator](https://github.com/Templariem/RLC_simulator)
 """)
 
 # --- Simulación numérica (RK4) del RLC serie con fuente Vs ---
