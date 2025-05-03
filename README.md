@@ -37,19 +37,6 @@ Ideal para:
 ## 🧮 Fundamento teórico
 
 El circuito simulado es un **RLC serie con fuente de tensión continua**. La ecuación diferencial que lo modela es:
-
-\[
-L \frac{d^2i}{dt^2} + R \frac{di}{dt} + \frac{1}{C} i = \frac{dV_s}{dt}
-\]
-
-El sistema se resuelve numéricamente usando el método de **Runge-Kutta de cuarto orden (RK4)**.
+$$\frac{d^2}{dt^2}V_c(t) + \frac{R}{L} \frac{d}{dt}V_c(t) + \frac{1}{LC}V_c(t) = \frac{1}{LC}V_s(t)$$
 
 ---
-
-## 🚀 Cómo ejecutar localmente
-
-### 1. Clonar el repositorio
-
-```bash
-git clone https://github.com/tuusuario/rlc-simulador.git
-cd rlc-simulador
